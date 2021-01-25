@@ -1,0 +1,19 @@
+{
+  "name": "kk-client-hunt",
+  "version": "1.0.0",
+  "description": "A client-side app with GitHub Pages",
+  "main": "scripts/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krishna-Koyyalamudi/kk-client-hunt.git"
+  },
+  "author": "Krishna Koyyalamudi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Krishna-Koyyalamudi/kk-client-hunt/issues"
+  },
+  "homepage": "https://github.com/Krishna-Koyyalamudi/kk-client-hunt#readme"
+}
