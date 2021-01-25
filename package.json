@@ -2,7 +2,7 @@
   "name": "kk-client-hunt",
   "version": "1.0.0",
   "description": "A client-side app with GitHub Pages",
-  "main": "scripts/main.js",
+  "main": "init-locations.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "index.html"
