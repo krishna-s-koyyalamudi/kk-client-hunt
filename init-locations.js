@@ -15,6 +15,7 @@ export default [
       Attachments: '',
       'Quest-Location': 'Horizons',
     },
+    {
       Name: 'Library',
       // Latitude: 40.3537,
       // Longitude: -94.8864, 
