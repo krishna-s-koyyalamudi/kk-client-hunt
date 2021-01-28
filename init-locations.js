@@ -1,8 +1,8 @@
 export default [
     {
       Name: 'Horizons',
-      Latitude: 40.356087,
-      Longitude: -94.878327, 
+      Latitude: 40.355305,
+      Longitude: -94.879846, 
       // North: 40.3537,
       // //North: 40.356087,
       // West: -94.878327,
