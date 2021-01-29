@@ -50,6 +50,8 @@ async function locationHandler() {
 
     if (error) {
         document.getElementById("error-message").innerHTML = "You're not in the specified area";
+    } else{
+        document.getElementById("error-message").innerHTML = "";
     }
 }
 
