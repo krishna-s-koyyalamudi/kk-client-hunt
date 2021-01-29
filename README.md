@@ -7,5 +7,5 @@ A client-side app with GitHub Pages
 
 ## Resources
 
-- ![Location Handler](https://github.com/denisecase/cp-client-hunt)
-- ![Distance Calculation](https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula)
+- [Location Handler](https://github.com/denisecase/cp-client-hunt)
+- [Distance Calculation](https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula)
