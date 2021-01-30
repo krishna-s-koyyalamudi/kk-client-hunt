@@ -12,7 +12,7 @@ const inside = (device, bounds) => {
   const ans =
     device.latitude > bounds.South &&
     device.latitude < bounds.North &&
-    device.longitude > bounds.West &&     
+    device.longitude > bounds.West &&
     device.longitude < bounds.East;
   // console.log(`CHECKING ${bounds.Name} ANS: ${ans}`);
   return ans;
@@ -37,7 +37,7 @@ export default function getLocation() {
 
         if (position === undefined) {
           document.querySelector('#error-message').innerHTML =
-            'Browser cannot determine device position (position is undefined).';
+            'Device position cannot be determined';
         }
         const device = position.coords;
         document.querySelector('#device-lat').innerHTML = device.latitude;
@@ -49,7 +49,7 @@ export default function getLocation() {
             const name = thisLoc.Name;
             document.querySelector('#locationAnswer').innerHTML = name;
             const utterance = new SpeechSynthesisUtterance();
-            utterance.text = `Congratulations! You found location ${name}`;
+            utterance.text = `Congratulations! You reached the location ${name}`;
             window.speechSynthesis.speak(utterance);
             break;
           }
@@ -59,6 +59,8 @@ export default function getLocation() {
         const s = `ERROR(${err.code}): ${err.message}`;
         console.warn(s);
         document.querySelector('#error-message').innerHTML = err.message;
+        let utterance = SpeechSynthesisUtterance("You're not in the specified areas");
+        speechSynthesis.speak(utterance);
       },
       options,
     );
