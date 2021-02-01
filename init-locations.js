@@ -13,8 +13,8 @@ export default [
     // },
     {
       Name: 'Horizons West Apartments',
-      Latitude: 40.35331,
-      Longitude: -94.88558, 
+      Latitude: 40.35537999,
+      Longitude: -94.879261, 
       // North: 40.35378,
       // West: -94.88658,
       // South: 40.35336,
