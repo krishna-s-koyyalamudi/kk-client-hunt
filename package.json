@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Krishna-Koyyalamudi/kk-client-hunt/issues"
   },
-  "homepage": "https://github.com/Krishna-Koyyalamudi/kk-client-hunt#readme"
+  "homepage": "https://github.com/Krishna-Koyyalamudi/kk-client-hunt#readme",
+  "dependencies": {
+    "@nestjs/typeorm": "^7.1.5",
+    "mysql2": "^2.2.5",
+    "typeorm": "^0.2.30"
+  }
 }

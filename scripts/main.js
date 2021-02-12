@@ -59,16 +59,24 @@ async function locationHandler() {
 
     // In case of any error where if the device is not 30m range it displays error.
 
+    // if (error) {
+    //   //  document.getElementById("error-message").innerHTML = "You're not in any specified areas";
+    //     // let utterance = new SpeechSynthesisUtterance("You're not in any specified areas");
+    //     //     speechSynthesis.speak(utterance);
+    //     let innerHTML = "You're not in any specified areas";
+    //     document.getElementById("error-message").innerHTML = innerHTML;
+    //     const utterance = new SpeechSynthesisUtterance(innerHTML);
+    //     //utterance.text = `Sorry,You're not in the radius range.`;
+    //     window.speechSynthesis.speak(utterance);
+    // } else{
+    //     document.getElementById("error-message").innerHTML = "";
+    // }
+
     if (error) {
-      //  document.getElementById("error-message").innerHTML = "You're not in any specified areas";
-        // let utterance = new SpeechSynthesisUtterance("You're not in any specified areas");
-        //     speechSynthesis.speak(utterance);
-        let innerHTML = "You're not in any specified areas";
-        document.getElementById("error-message").innerHTML = innerHTML;
-        const utterance = new SpeechSynthesisUtterance(innerHTML);
-        //utterance.text = `Sorry,You're not in the radius range.`;
-        window.speechSynthesis.speak(utterance);
-    } else{
+        document.getElementById("error-message").innerHTML = "You are not in the range of the location.";
+        let utterance = new SpeechSynthesisUtterance("You are not in the range of the location.");
+        speechSynthesis.speak(utterance);
+    } else {
         document.getElementById("error-message").innerHTML = "";
     }
 }
@@ -78,37 +86,24 @@ async function locationHandler() {
 
 
 function isInside(questLat, questLon) {
-    let distance = distanceBetweenLocations(questLat, questLon);//currentlat, currentlon, questLat, questLon);
+    let distance = distanceBetweenLocations(currentlat, currentlon, questLat, questLon);
     console.log("distance: " + distance);
-    if (distance > 20) {
+    console.log("quest lat " + questLat);
+
+
+    if (distance < 0.3) {
         return true;
     } else {
         return false;
     }
 }
 
-function distanceBetweenLocations(questLat, questLon) {
-    const R = 6371e3;
-    const φ1 = currentlat * Math.PI / 180;
-    const φ2 = questLat * Math.PI / 180;
-    const Δφ = (questLat - currentlat) * Math.PI / 180;
-    const Δλ = (questLon - currentlon) * Math.PI / 180;
 
-    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-        Math.cos(φ1) * Math.cos(φ2) *
-        Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+function distanceBetweenLocations(currentlat, currentlon, questLat, questLon) {
+    var p = 0.017453292519943295;
+    var a = 0.5 - Math.cos((questLat - currentlat) * p) / 2 +
+        Math.cos(currentlat * p) * Math.cos(questLat * p) *
+        (1 - Math.cos((questLon - currentlon) * p)) / 2;
 
-    const d = R * c;
-    return d; 
+    return 12742 * Math.asin(Math.sqrt(a));
 }
-
-// function distanceBetweenLocations(currentlat, currentlon, questLat, questLon) {
-//     var p = 0.017453292519943295;
-//     var a = 0.5 - Math.cos((questLat - currentlat) * p) / 2 +
-//         Math.cos(currentlat * p) * Math.cos(questLat * p) *
-//         (1 - Math.cos((questLon - currentlon) * p)) / 2;
-//     return 12742 * Math.asin(Math.sqrt(a));
-// }
-
-
